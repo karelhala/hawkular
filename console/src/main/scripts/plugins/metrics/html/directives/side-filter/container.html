@@ -1,0 +1,28 @@
+<div>
+  <div class="hk-filter-v-block">
+    <hk-applied-filters filters="vm.appliedFilters"
+                        remove-filter="vm.removeFromFilters(filter)"
+                        clear-all="vm.removeAllFilters()">
+    </hk-applied-filters>
+  </div>
+  <div class="hk-filter-v-block" ng-repeat="filter in vm.filtersConfig.filters">
+    <div ng-switch="filter.filterType">
+      <hk-text-filter ng-switch-when="text"
+                      text-filter="filter"
+                      filter-clicked="vm.changeFilter(name, value, type, checked)">
+      </hk-text-filter>
+
+      <hk-collapse-filter ng-switch-when="radio"
+                          filter-config="filter"
+                          selected-filters="vm.appliedFilters"
+                          filter-clicked="vm.changeFilter(name, value, type, checked)">
+      </hk-collapse-filter>
+
+      <hk-collapse-filter ng-switch-when="checkbox"
+                          filter-config="filter"
+                          selected-filters="vm.appliedFilters"
+                          filter-clicked="vm.changeFilter(name, value, type, checked)">
+      </hk-collapse-filter>
+    </div>
+  </div>
+</div>

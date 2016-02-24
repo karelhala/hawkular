@@ -1,0 +1,25 @@
+<div class="dropdown popover-markup" dropdown auto-close="outsideClick" is-open="isOpen">
+  <span>
+    <h4>Filter by</h4>
+  </span>
+  <span class="hk-dropdown-toggle">
+    <a href="#" class="input-group dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-filter"></i> {{filters.length || 0}} Filters Applied
+    </a>
+  </span>
+  <div class="dropdown-menu infotip bottom-right hk-label-editor">
+    <div class="arrow"></div>
+    <div class="dropdown-menu-content">
+      <div class="popover-content">
+        <div class="hk-filters-selected">
+          <div class="hk-filter-selected" ng-repeat="filter in filters">
+            {{filter.title}} : {{filter.value}} <button class="btn btn-link" ng-click="removeFilter({filter: filter})"><span class="pficon-close"></span></button>
+          </div>
+          <div class="hk-dropdown-footer">
+            <button class="btn btn-link" ng-click="clearAll()">Clear All</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
